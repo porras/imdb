@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'cgi'
 require 'rubygems'
-require 'scrapi'
+require 'hpricot'
 require 'imdb_search'

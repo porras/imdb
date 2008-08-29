@@ -1,3 +1,3 @@
 require 'imdb'
 
-puts ImdbSearch.new('Indiana').movies.inspect
+puts ImdbSearch.new('Lola Flores').movies.inspect

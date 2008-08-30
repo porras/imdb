@@ -1,14 +1,16 @@
-require 'imdb'
+require File.dirname(__FILE__) + '/../lib/imdb'
+
+samples_dir = File.dirname(__FILE__) + '/samples'
 
 describe ImdbSearch do
 
   before(:each) do
     @imdb_search = ImdbSearch.new('Indiana Jones')
-    @imdb_search.stub!(:open).and_return(open('sample_search.html'))
+    @imdb_search.stub!(:open).and_return(open("#{samples_dir}/sample_search.html"))
   end
   
   it "should query IMDB url" do
-    @imdb_search.should_receive(:open).with("http://www.imdb.com/find?s=all&q=Indiana+Jones").and_return(open('sample_search.html'))
+    @imdb_search.should_receive(:open).with("http://www.imdb.com/find?s=all&q=Indiana+Jones").and_return(open("#{samples_dir}/sample_search.html"))
     @imdb_search.send(:document)
   end
 

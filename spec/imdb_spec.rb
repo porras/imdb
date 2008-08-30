@@ -60,7 +60,15 @@ describe ImdbMovie do
     @imdb_movie.poster.should == 'http://ia.media-imdb.com/images/M/MV5BMTkzODA5ODYwOV5BMl5BanBnXkFtZTcwMjAyNDYyMQ@@._V1._SX95_SY140_.jpg'
   end
   
-  it "should get the X first cast members"
+  it "should get cast members" do
+    cast = @imdb_movie.cast_members
+    cast.should include('Harrison Ford')
+    cast.should include('Sean Connery')
+    cast.should include('Denholm Elliott')
+    cast.should include('Alison Doody')
+    cast.should include('John Rhys-Davies')
+  end
+  
   it "should get the writers"
   it "should get the release date"
   it "should get the genres"

@@ -16,6 +16,10 @@ class ImdbMovie
     document.at("a[@name='poster'] img")['src']
   end
   
+  def cast_members
+    document.search("table.cast td.nm a").map { |link| link.innerHTML }
+  end
+  
   private
   
   def document

@@ -104,7 +104,15 @@ describe ImdbMovie do
   it "should get the color" do
     @imdb_movie.color.should == 'Color'
   end
-  it "should get the company"
-  it "should get the first X photos"
+  
+  it "should get the company" do
+    @imdb_movie.company.should == 'Lucasfilm'
+  end
+  
+  it "should get some photos" do
+    @imdb_movie.photos.should have(10).strings
+    @imdb_movie.photos.should include('http://ia.media-imdb.com/images/M/MV5BMTY4MzY3OTY0MF5BMl5BanBnXkFtZTYwODM0OTE3._V1._CR82,0,320,320_SS90_.jpg')
+    @imdb_movie.photos.should include('http://ia.media-imdb.com/images/M/MV5BMjAwNTM4ODc3Nl5BMl5BanBnXkFtZTYwNzU0OTE3._V1._CR82,0,320,320_SS90_.jpg') 
+  end
 
 end

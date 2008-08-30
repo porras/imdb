@@ -39,6 +39,14 @@ class ImdbMovie
   def color
     document.at("h5[text()='Color:'] ~ a[@href*=color-info']").innerHTML.strip
   end
+
+  def company
+    document.at("h5[text()='Company:'] ~ a[@href*=/company/']").innerHTML.strip
+  end
+  
+  def photos
+    document.search(".media_strip_thumb img").map { |img| img['src'] }
+  end
     
   private
   

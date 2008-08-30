@@ -39,3 +39,37 @@ describe ImdbSearch do
   end
 
 end
+
+describe ImdbMovie do
+
+  before(:each) do
+    @imdb_movie = ImdbMovie.new('0097576', 'Indiana Jones and the Last Crusade')
+    @imdb_movie.stub!(:open).and_return(open("#{samples_dir}/sample_movie.html"))
+  end
+  
+  it "should query IMDB url" do
+    @imdb_movie.should_receive(:open).with("http://www.imdb.com/title/tt0097576/").and_return(open("#{samples_dir}/sample_movie.html"))
+    @imdb_movie.send(:document)
+  end
+  
+  it "should get director" do
+    @imdb_movie.director.should == 'Steven Spielberg'
+  end
+  
+  it "should get the poster" do
+    @imdb_movie.poster.should == 'http://ia.media-imdb.com/images/M/MV5BMTkzODA5ODYwOV5BMl5BanBnXkFtZTcwMjAyNDYyMQ@@._V1._SX95_SY140_.jpg'
+  end
+  
+  it "should get the X first cast members"
+  it "should get the writers"
+  it "should get the release date"
+  it "should get the genres"
+  it "should get the plot"
+  it "should get the length"
+  it "should get the countries"
+  it "should get the languages"
+  it "should get the color"
+  it "should get the company"
+  it "should get the first X photos"
+
+end

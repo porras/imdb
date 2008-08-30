@@ -31,7 +31,11 @@ class ImdbMovie
   def countries
     document.search("h5[text()='Country:'] ~ a[@href*=/Sections/Countries/']").map { |link| link.innerHTML.strip }
   end
-  
+
+  def languages
+    document.search("h5[text()='Language:'] ~ a[@href*=/Sections/Languages/']").map { |link| link.innerHTML.strip }
+  end
+    
   private
   
   def document

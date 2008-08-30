@@ -94,7 +94,13 @@ describe ImdbMovie do
     @imdb_movie.countries.should include('USA')
   end
   
-  it "should get the languages"
+  it "should get the languages" do
+    @imdb_movie.languages.should have(3).strings
+    @imdb_movie.languages.should include('English')
+    @imdb_movie.languages.should include('German')
+    @imdb_movie.languages.should include('Greek')
+  end
+  
   it "should get the color"
   it "should get the company"
   it "should get the first X photos"

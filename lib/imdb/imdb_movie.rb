@@ -24,6 +24,10 @@ class ImdbMovie
     document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML }.reject { |w| w == 'more' }
   end
   
+  def genres
+    document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML }
+  end
+  
   private
   
   def document

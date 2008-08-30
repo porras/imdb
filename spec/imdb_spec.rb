@@ -78,7 +78,14 @@ describe ImdbMovie do
   end
   
   it "should get the release date"
-  it "should get the genres"
+  
+  it "should get the genres" do
+    genres = @imdb_movie.genres
+    genres.should have(2).strings
+    genres.should include('Action')
+    genres.should include('Adventure')
+  end
+  
   it "should get the plot"
   it "should get the length"
   it "should get the countries"

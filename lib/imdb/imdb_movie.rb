@@ -20,6 +20,10 @@ class ImdbMovie
     document.search("table.cast td.nm a").map { |link| link.innerHTML }
   end
   
+  def writers
+    document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML }.reject { |w| w == 'more' }
+  end
+  
   private
   
   def document

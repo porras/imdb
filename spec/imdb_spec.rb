@@ -67,9 +67,16 @@ describe ImdbMovie do
     cast.should include('Denholm Elliott')
     cast.should include('Alison Doody')
     cast.should include('John Rhys-Davies')
+    cast.should_not include('more')
   end
   
-  it "should get the writers"
+  it "should get the writers" do
+    writers = @imdb_movie.writers
+    writers.should include('George Lucas')
+    writers.should include('Philip Kaufman')
+    writers.should_not include('more')
+  end
+  
   it "should get the release date"
   it "should get the genres"
   it "should get the plot"

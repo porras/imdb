@@ -9,5 +9,5 @@ end
 desc "Run all specs and generate HTML report"
 Spec::Rake::SpecTask.new('spec:html') do |t|
   t.spec_files = FileList['spec/**/*.rb']
-  t.spec_opts = ["--format", "spec.html"]
+  t.spec_opts = ["--format", "html:spec.html"]
 end

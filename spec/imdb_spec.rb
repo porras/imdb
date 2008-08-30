@@ -101,7 +101,9 @@ describe ImdbMovie do
     @imdb_movie.languages.should include('Greek')
   end
   
-  it "should get the color"
+  it "should get the color" do
+    @imdb_movie.color.should == 'Color'
+  end
   it "should get the company"
   it "should get the first X photos"
 

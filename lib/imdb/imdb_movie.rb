@@ -35,6 +35,10 @@ class ImdbMovie
   def languages
     document.search("h5[text()='Language:'] ~ a[@href*=/Sections/Languages/']").map { |link| link.innerHTML.strip }
   end
+  
+  def color
+    document.at("h5[text()='Color:'] ~ a[@href*=color-info']").innerHTML.strip
+  end
     
   private
   

@@ -1,0 +1,34 @@
+
+ImdbSearch
+- should query IMDB url
+
+ImdbSearch movies
+- should be a collection of ImdbMovie instances
+- should include 'Indiana Jones and the Last Crusade'
+- should have titles
+- should not have titles with HTML tags
+
+ImdbMovie
+- should query IMDB url
+- should get director
+- should get the poster
+- should get cast members
+- should get the writers
+- should get the release date (PENDING: Not Yet Implemented)
+- should get the genres
+- should get the plot (PENDING: Not Yet Implemented)
+- should get the length (PENDING: Not Yet Implemented)
+- should get the countries
+- should get the languages
+- should get the color
+- should get the company
+- should get some photos
+
+Pending:
+ImdbMovie should get the release date (Not Yet Implemented)
+ImdbMovie should get the plot (Not Yet Implemented)
+ImdbMovie should get the length (Not Yet Implemented)
+
+Finished in 1.403804 seconds
+
+19 examples, 0 failures, 3 pending

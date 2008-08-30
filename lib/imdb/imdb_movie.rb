@@ -9,7 +9,7 @@ class ImdbMovie
   end
   
   def director
-    document.at("h5[text()='Director:'] ~ a").innerHTML rescue 'Unknown'
+    document.at("h5[text()='Director:'] ~ a").innerHTML.strip
   end
   
   def poster
@@ -17,15 +17,19 @@ class ImdbMovie
   end
   
   def cast_members
-    document.search("table.cast td.nm a").map { |link| link.innerHTML }
+    document.search("table.cast td.nm a").map { |link| link.innerHTML.strip }
   end
   
   def writers
-    document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML }.reject { |w| w == 'more' }
+    document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML.strip }.reject { |w| w == 'more' }
   end
   
   def genres
-    document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML }
+    document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML.strip }
+  end
+
+  def countries
+    document.search("h5[text()='Country:'] ~ a[@href*=/Sections/Countries/']").map { |link| link.innerHTML.strip }
   end
   
   private

@@ -88,7 +88,12 @@ describe ImdbMovie do
   
   it "should get the plot"
   it "should get the length"
-  it "should get the countries"
+  
+  it "should get the countries" do
+    @imdb_movie.countries.should have(1).string
+    @imdb_movie.countries.should include('USA')
+  end
+  
   it "should get the languages"
   it "should get the color"
   it "should get the company"

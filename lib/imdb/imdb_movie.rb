@@ -33,6 +33,10 @@ class ImdbMovie
     document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML.strip }
   end
   
+  def plot
+    document.search("//h5[text()^='Plot']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip
+  end
+  
   def length
     document.search("//h5[text()^='Runtime']/..").innerHTML[/\d+ min/]
   end

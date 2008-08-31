@@ -16,7 +16,7 @@ ImdbMovie
 - should get the writers
 - should get the release date
 - should get the genres
-- should get the plot (PENDING: Not Yet Implemented)
+- should get the plot
 - should get the length
 - should get the countries
 - should get the languages
@@ -24,9 +24,6 @@ ImdbMovie
 - should get the company
 - should get some photos
 
-Pending:
-ImdbMovie should get the plot (Not Yet Implemented)
+Finished in 1.495464 seconds
 
-Finished in 1.460421 seconds
-
-19 examples, 0 failures, 1 pending
+19 examples, 0 failures

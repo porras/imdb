@@ -24,6 +24,11 @@ class ImdbMovie
     document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML.strip }.reject { |w| w == 'more' }
   end
   
+  def release_date
+    date = document.search("//h5[text()^='Release Date']/..").innerHTML[/^\d{1,2} \w+ \d{4}/]
+    Date.parse(Chronic.parse(date).strftime('%Y/%m/%d'))
+  end
+  
   def genres
     document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML.strip }
   end

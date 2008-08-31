@@ -14,7 +14,7 @@ ImdbMovie
 - should get the poster
 - should get cast members
 - should get the writers
-- should get the release date (PENDING: Not Yet Implemented)
+- should get the release date
 - should get the genres
 - should get the plot (PENDING: Not Yet Implemented)
 - should get the length
@@ -25,9 +25,8 @@ ImdbMovie
 - should get some photos
 
 Pending:
-ImdbMovie should get the release date (Not Yet Implemented)
 ImdbMovie should get the plot (Not Yet Implemented)
 
-Finished in 1.500289 seconds
+Finished in 1.460421 seconds
 
-19 examples, 0 failures, 2 pending
+19 examples, 0 failures, 1 pending

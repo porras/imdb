@@ -77,7 +77,10 @@ describe ImdbMovie do
     writers.should_not include('more')
   end
   
-  it "should get the release date"
+  it "should get the release date" do
+    @imdb_movie.release_date.should be_an_instance_of(Date)
+    @imdb_movie.release_date.should == Date.new(1989, 9, 1)
+  end
   
   it "should get the genres" do
     genres = @imdb_movie.genres

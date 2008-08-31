@@ -17,7 +17,7 @@ ImdbMovie
 - should get the release date (PENDING: Not Yet Implemented)
 - should get the genres
 - should get the plot (PENDING: Not Yet Implemented)
-- should get the length (PENDING: Not Yet Implemented)
+- should get the length
 - should get the countries
 - should get the languages
 - should get the color
@@ -27,8 +27,7 @@ ImdbMovie
 Pending:
 ImdbMovie should get the release date (Not Yet Implemented)
 ImdbMovie should get the plot (Not Yet Implemented)
-ImdbMovie should get the length (Not Yet Implemented)
 
-Finished in 1.403804 seconds
+Finished in 1.500289 seconds
 
-19 examples, 0 failures, 3 pending
+19 examples, 0 failures, 2 pending

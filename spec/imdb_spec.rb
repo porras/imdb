@@ -87,7 +87,10 @@ describe ImdbMovie do
   end
   
   it "should get the plot"
-  it "should get the length"
+  
+  it "should get the length" do
+    @imdb_movie.length.should == '127 min'
+  end
   
   it "should get the countries" do
     @imdb_movie.countries.should have(1).string

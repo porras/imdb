@@ -27,6 +27,10 @@ class ImdbMovie
   def genres
     document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML.strip }
   end
+  
+  def length
+    document.search("//h5[text()^='Runtime']/..").innerHTML[/\d+ min/]
+  end
 
   def countries
     document.search("h5[text()='Country:'] ~ a[@href*=/Sections/Countries/']").map { |link| link.innerHTML.strip }

@@ -61,20 +61,18 @@ describe ImdbMovie do
   end
   
   it "should get cast members" do
-    cast = @imdb_movie.cast_members
-    cast.should include('Harrison Ford')
-    cast.should include('Sean Connery')
-    cast.should include('Denholm Elliott')
-    cast.should include('Alison Doody')
-    cast.should include('John Rhys-Davies')
-    cast.should_not include('more')
+    @imdb_movie.cast_members.should include('Harrison Ford')
+    @imdb_movie.cast_members.should include('Sean Connery')
+    @imdb_movie.cast_members.should include('Denholm Elliott')
+    @imdb_movie.cast_members.should include('Alison Doody')
+    @imdb_movie.cast_members.should include('John Rhys-Davies')
+    @imdb_movie.cast_members.should_not include('more')
   end
   
   it "should get the writers" do
-    writers = @imdb_movie.writers
-    writers.should include('George Lucas')
-    writers.should include('Philip Kaufman')
-    writers.should_not include('more')
+    @imdb_movie.writers.should include('George Lucas')
+    @imdb_movie.writers.should include('Philip Kaufman')
+    @imdb_movie.writers.should_not include('more')
   end
   
   it "should get the release date" do
@@ -83,10 +81,9 @@ describe ImdbMovie do
   end
   
   it "should get the genres" do
-    genres = @imdb_movie.genres
-    genres.should have(2).strings
-    genres.should include('Action')
-    genres.should include('Adventure')
+    @imdb_movie.genres.should have(2).strings
+    @imdb_movie.genres.should include('Action')
+    @imdb_movie.genres.should include('Adventure')
   end
   
   it "should get the plot" do

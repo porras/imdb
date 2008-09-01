@@ -17,7 +17,11 @@ describe ImdbSearch do
     describe "movies" do
 
       it "should be a collection of ImdbMovie instances" do
-        @imdb_search.movies.should have(59).imdb_movies
+        @imdb_search.movies.should be_an_instance_of(Array)
+        @imdb_search.movies.should_not be_empty
+        @imdb_search.movies.each do |movie|
+          movie.should be_an_instance_of(ImdbMovie)
+        end
       end
 
       it "should include 'Indiana Jones and the Last Crusade'" do

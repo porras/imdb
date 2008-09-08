@@ -1,14 +1,7 @@
 
-ImdbSearch
-- should query IMDB url
-
-ImdbSearch movies
-- should be a collection of ImdbMovie instances
-- should include 'Indiana Jones and the Last Crusade'
-- should have titles
-- should not have titles with HTML tags
-
 ImdbMovie
+
+ImdbMovie Indiana Jones and the Last Crusade
 - should query IMDB url
 - should get director
 - should get the poster
@@ -24,6 +17,44 @@ ImdbMovie
 - should get the company
 - should get some photos
 
-Finished in 1.495464 seconds
+ImdbMovie Han robado una estrella
+- should query IMDB url
+- should get director (FAILED - 1)
+- should not get the poster
+- should get cast members (FAILED - 2)
+- should get the writers
+- should get the release date
+- should get the genres
+- should not get the plot
+- should get the length
+- should get the countries
+- should get the languages
+- should not get the color
+- should get the company
+- should not get any photos
 
-19 examples, 0 failures
+ImdbSearch
+
+ImdbSearch Indiana Jones
+- should query IMDB url
+
+ImdbSearch Indiana Jones movies
+- should be a collection of ImdbMovie instances
+- should include 'Indiana Jones and the Last Crusade'
+- should have titles
+- should not have titles with HTML tags
+
+1)
+'ImdbMovie Han robado una estrella should get director' FAILED
+expected: "Javier Set\303\263",
+     got: "Javier Set&#243;" (using ==)
+./spec/imdb_movie_spec.rb:101:
+
+2)
+'ImdbMovie Han robado una estrella should get cast members' FAILED
+expected ["Rafaela Aparicio", "Frank Bra&#241;a", "Antonio Casal", "Marujita D&#237;az", "Estrellita", "Goyo Lebrero", "Paula Martel", "Francisco Montalvo", "Matilde Mu&#241;oz Sampedro", "Jos&#233; Orjas", "Julio Pe&#241;a", "Hugo Pimentel", "Joaqu&#237;n Portillo 'Top'", "Antonio Prieto", "Roberto Rey", "Luis S&#225;nchez Polack", "Espartaco Santoni", "Francisco V&#225;zquez"] to include "Marujita D\303\255az"
+./spec/imdb_movie_spec.rb:110:
+
+Finished in 3.03121 seconds
+
+33 examples, 2 failures

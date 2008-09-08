@@ -84,4 +84,76 @@ describe ImdbMovie do
     
   end
 
+
+  describe 'Han robado una estrella' do
+
+    before(:each) do
+      @imdb_movie = ImdbMovie.new('0054961', 'Han robado una estrella')
+      @imdb_movie.stub!(:open).and_return(open("#{$samples_dir}/sample_incomplete_movie.html"))
+    end
+  
+    it "should query IMDB url" do
+      @imdb_movie.should_receive(:open).with("http://www.imdb.com/title/tt0054961/").and_return(open("#{$samples_dir}/sample_incomplete_movie.html"))
+      @imdb_movie.send(:document)
+    end
+  
+    it "should get director" do
+      @imdb_movie.director.should == 'Javier Setó'
+    end
+  
+    it "should not get the poster" do
+      @imdb_movie.poster.should be_nil
+    end
+  
+    it "should get cast members" do
+      @imdb_movie.cast_members.should include('Rafaela Aparicio')
+      @imdb_movie.cast_members.should include('Marujita Díaz')
+      @imdb_movie.cast_members.should include('Espartaco Santoni')
+      @imdb_movie.cast_members.should_not include('more')
+    end
+  
+    it "should get the writers" do
+      @imdb_movie.writers.should have(1).string
+      @imdb_movie.writers.should include('Paulino Rodrigo')
+    end
+  
+    it "should get the release date" do
+      @imdb_movie.release_date.should be_an_instance_of(Date)
+      @imdb_movie.release_date.should == Date.new(1963, 9, 9)
+    end
+  
+    it "should get the genres" do
+      @imdb_movie.genres.should == ['Comedy', 'Musical']
+    end
+  
+    it "should not get the plot" do
+      @imdb_movie.plot.should be_nil
+    end
+  
+    it "should get the length" do
+      @imdb_movie.length.should == '93 min'
+    end
+  
+    it "should get the countries" do
+      @imdb_movie.countries.should == ['Spain']
+    end
+  
+    it "should get the languages" do
+      @imdb_movie.languages.should == ['Spanish']
+    end
+  
+    it "should not get the color" do
+      @imdb_movie.color.should be_nil
+    end
+  
+    it "should get the company" do
+      @imdb_movie.company.should == 'Brepi Films'
+    end
+  
+    it "should not get any photos" do
+      @imdb_movie.photos.should be_empty
+    end
+    
+  end
+
 end

@@ -66,7 +66,11 @@ class ImdbMovie
   private
   
   def document
-    @document ||= Hpricot(open(self.url).read)
+    unless @document
+      @document = Hpricot(open(self.url).read)
+      self.title = @document.at("h1").innerHTML.split('<span').first.strip.unescape_html rescue nil
+    end
+    @document
   end
   
 end

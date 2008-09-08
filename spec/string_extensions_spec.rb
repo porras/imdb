@@ -14,4 +14,12 @@ describe String do
     
   end
   
+  describe "strip_tags" do
+    
+    it "should strip HTML tags" do
+      "<em>Hola</em> hola".strip_tags.should == 'Hola hola'
+    end
+    
+  end
+  
 end

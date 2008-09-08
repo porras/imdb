@@ -5,7 +5,7 @@ describe ImdbMovie do
   describe 'Indiana Jones and the Last Crusade' do
 
     before(:each) do
-      @imdb_movie = ImdbMovie.new('0097576', 'Indiana Jones and the Last Crusade')
+      @imdb_movie = ImdbMovie.new('0097576', 'Indiana Jones and the Last Crusade (1989)')
       @imdb_movie.stub!(:open).and_return(open("#{$samples_dir}/sample_movie.html"))
     end
   
@@ -80,6 +80,19 @@ describe ImdbMovie do
       @imdb_movie.photos.should have(10).strings
       @imdb_movie.photos.should include('http://ia.media-imdb.com/images/M/MV5BMTY4MzY3OTY0MF5BMl5BanBnXkFtZTYwODM0OTE3._V1._CR82,0,320,320_SS90_.jpg')
       @imdb_movie.photos.should include('http://ia.media-imdb.com/images/M/MV5BMjAwNTM4ODc3Nl5BMl5BanBnXkFtZTYwNzU0OTE3._V1._CR82,0,320,320_SS90_.jpg') 
+    end
+    
+    describe "title pre-caching" do
+      
+      it "should have the original title before querying anything" do
+        @imdb_movie.title.should == 'Indiana Jones and the Last Crusade (1989)'
+      end
+      
+      it "should have the updated title after querying something" do
+        @imdb_movie.release_date
+        @imdb_movie.title.should == 'Indiana Jones and the Last Crusade'
+      end
+      
     end
     
   end

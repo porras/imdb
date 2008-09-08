@@ -5,12 +5,12 @@ describe ImdbSearch do
   describe 'Indiana Jones' do
 
     before(:each) do
-      @imdb_search = ImdbSearch.new('Indiana Jones')
+      @imdb_search = ImdbSearch.new('indiana jones')
       @imdb_search.stub!(:open).and_return(open("#{$samples_dir}/sample_search.html"))
     end
 
     it "should query IMDB url" do
-      @imdb_search.should_receive(:open).with("http://www.imdb.com/find?s=all&q=Indiana+Jones").and_return(open("#{$samples_dir}/sample_search.html"))
+      @imdb_search.should_receive(:open).with("http://www.google.com/search?as_q=indiana+jones+inurl%3Atitle&num=20&as_sitesearch=imdb.com").and_return(open("#{$samples_dir}/sample_search.html"))
       @imdb_search.send(:document)
     end
 
@@ -24,8 +24,8 @@ describe ImdbSearch do
         end
       end
 
-      it "should include 'Indiana Jones and the Last Crusade'" do
-        @imdb_search.movies.detect { |m| m.title == 'Indiana Jones and the Last Crusade' }.should_not be_nil
+      it "should include 'Indiana Jones and the Last Crusade (1989)'" do
+        @imdb_search.movies.map { |m| m.title }.should include('Indiana Jones and the Last Crusade (1989)')
       end
 
       it "should have titles" do

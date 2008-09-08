@@ -17,6 +17,10 @@ ImdbMovie Indiana Jones and the Last Crusade
 - should get the company
 - should get some photos
 
+ImdbMovie Indiana Jones and the Last Crusade title pre-caching
+- should have the original title before querying anything
+- should have the updated title after querying something
+
 ImdbMovie Han robado una estrella
 - should query IMDB url
 - should get director
@@ -40,7 +44,7 @@ ImdbSearch Indiana Jones
 
 ImdbSearch Indiana Jones movies
 - should be a collection of ImdbMovie instances
-- should include 'Indiana Jones and the Last Crusade'
+- should include 'Indiana Jones and the Last Crusade (1989)'
 - should have titles
 - should not have titles with HTML tags
 
@@ -50,6 +54,9 @@ String unescape_html
 - should convert &amp; to &
 - should convert &#243; to ó
 
-Finished in 2.459625 seconds
+String strip_tags
+- should strip HTML tags
 
-35 examples, 0 failures
+Finished in 2.772724 seconds
+
+38 examples, 0 failures

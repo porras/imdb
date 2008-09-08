@@ -19,9 +19,9 @@ ImdbMovie Indiana Jones and the Last Crusade
 
 ImdbMovie Han robado una estrella
 - should query IMDB url
-- should get director (FAILED - 1)
+- should get director
 - should not get the poster
-- should get cast members (FAILED - 2)
+- should get cast members
 - should get the writers
 - should get the release date
 - should get the genres
@@ -44,17 +44,12 @@ ImdbSearch Indiana Jones movies
 - should have titles
 - should not have titles with HTML tags
 
-1)
-'ImdbMovie Han robado una estrella should get director' FAILED
-expected: "Javier Set\303\263",
-     got: "Javier Set&#243;" (using ==)
-./spec/imdb_movie_spec.rb:101:
+String
 
-2)
-'ImdbMovie Han robado una estrella should get cast members' FAILED
-expected ["Rafaela Aparicio", "Frank Bra&#241;a", "Antonio Casal", "Marujita D&#237;az", "Estrellita", "Goyo Lebrero", "Paula Martel", "Francisco Montalvo", "Matilde Mu&#241;oz Sampedro", "Jos&#233; Orjas", "Julio Pe&#241;a", "Hugo Pimentel", "Joaqu&#237;n Portillo 'Top'", "Antonio Prieto", "Roberto Rey", "Luis S&#225;nchez Polack", "Espartaco Santoni", "Francisco V&#225;zquez"] to include "Marujita D\303\255az"
-./spec/imdb_movie_spec.rb:110:
+String unescape_html
+- should convert &amp; to &
+- should convert &#243; to ó
 
-Finished in 3.03121 seconds
+Finished in 2.459625 seconds
 
-33 examples, 2 failures
+35 examples, 0 failures

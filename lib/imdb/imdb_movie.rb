@@ -9,7 +9,7 @@ class ImdbMovie
   end
   
   def director
-    document.at("h5[text()='Director:'] ~ a").innerHTML.strip rescue nil
+    document.at("h5[text()='Director:'] ~ a").innerHTML.strip.unescape_html rescue nil
   end
   
   def poster
@@ -17,11 +17,11 @@ class ImdbMovie
   end
   
   def cast_members
-    document.search("table.cast td.nm a").map { |link| link.innerHTML.strip } rescue []
+    document.search("table.cast td.nm a").map { |link| link.innerHTML.strip.unescape_html } rescue []
   end
   
   def writers
-    document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML.strip }.reject { |w| w == 'more' }.uniq rescue []
+    document.search("h5[text()^='Writers'] ~ a").map { |link| link.innerHTML.strip.unescape_html }.reject { |w| w == 'more' }.uniq rescue []
   end
   
   def release_date
@@ -32,11 +32,11 @@ class ImdbMovie
   end
   
   def genres
-    document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML.strip } rescue []
+    document.search("h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']").map { |link| link.innerHTML.strip.unescape_html } rescue []
   end
   
   def plot
-    document.search("//h5[text()^='Plot']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip rescue nil
+    document.search("//h5[text()^='Plot']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip.unescape_html rescue nil
   end
   
   def length
@@ -44,19 +44,19 @@ class ImdbMovie
   end
 
   def countries
-    document.search("h5[text()='Country:'] ~ a[@href*=/Sections/Countries/']").map { |link| link.innerHTML.strip } rescue []
+    document.search("h5[text()='Country:'] ~ a[@href*=/Sections/Countries/']").map { |link| link.innerHTML.strip.unescape_html } rescue []
   end
 
   def languages
-    document.search("h5[text()='Language:'] ~ a[@href*=/Sections/Languages/']").map { |link| link.innerHTML.strip } rescue []
+    document.search("h5[text()='Language:'] ~ a[@href*=/Sections/Languages/']").map { |link| link.innerHTML.strip.unescape_html } rescue []
   end
   
   def color
-    document.at("h5[text()='Color:'] ~ a[@href*=color-info']").innerHTML.strip rescue nil
+    document.at("h5[text()='Color:'] ~ a[@href*=color-info']").innerHTML.strip.unescape_html rescue nil
   end
 
   def company
-    document.at("h5[text()='Company:'] ~ a[@href*=/company/']").innerHTML.strip rescue nil
+    document.at("h5[text()='Company:'] ~ a[@href*=/company/']").innerHTML.strip.unescape_html rescue nil
   end
   
   def photos

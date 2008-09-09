@@ -62,15 +62,19 @@ class ImdbMovie
   def photos
     document.search(".media_strip_thumb img").map { |img| img['src'] } rescue []
   end
+  
+  def get_data
+    update_title
+  end
     
   private
   
+  def update_title
+    @title = document.at("h1").innerHTML.split('<span').first.strip.unescape_html rescue nil    
+  end
+  
   def document
-    unless @document
-      @document = Hpricot(open(self.url).read)
-      self.title = @document.at("h1").innerHTML.split('<span').first.strip.unescape_html rescue nil
-    end
-    @document
+    @document ||= Hpricot(open(self.url).read)
   end
   
 end

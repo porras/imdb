@@ -82,14 +82,14 @@ describe ImdbMovie do
       @imdb_movie.photos.should include('http://ia.media-imdb.com/images/M/MV5BMjAwNTM4ODc3Nl5BMl5BanBnXkFtZTYwNzU0OTE3._V1._CR82,0,320,320_SS90_.jpg') 
     end
     
-    describe "title pre-caching" do
+    describe "title pre-caching & get_data" do
       
       it "should have the original title before querying anything" do
         @imdb_movie.title.should == 'Indiana Jones and the Last Crusade (1989)'
       end
       
-      it "should have the updated title after querying something" do
-        @imdb_movie.release_date
+      it "should have the updated title after calling get_data" do
+        @imdb_movie.get_data
         @imdb_movie.title.should == 'Indiana Jones and the Last Crusade'
       end
       

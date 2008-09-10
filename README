@@ -16,10 +16,12 @@ ImdbMovie Indiana Jones and the Last Crusade
 - should get the color
 - should get the company
 - should get some photos
+- should get the tagline
+- should get the aspect ratio
 
-ImdbMovie Indiana Jones and the Last Crusade title pre-caching
+ImdbMovie Indiana Jones and the Last Crusade title pre-caching & get_data
 - should have the original title before querying anything
-- should have the updated title after querying something
+- should have the updated title after calling get_data
 
 ImdbMovie Han robado una estrella
 - should query IMDB url
@@ -48,6 +50,11 @@ ImdbSearch Indiana Jones movies
 - should have titles
 - should not have titles with HTML tags
 
+ImdbSearch Torrent
+
+ImdbSearch Torrent movies
+- should include 'Misión en Marbella (2001)'
+
 String
 
 String unescape_html
@@ -57,6 +64,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 2.772724 seconds
+Finished in 2.787784 seconds
 
-38 examples, 0 failures
+41 examples, 0 failures

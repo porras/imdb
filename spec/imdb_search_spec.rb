@@ -43,5 +43,22 @@ describe ImdbSearch do
     end
 
   end
+  
+  describe 'Torrent' do
+
+    before(:each) do
+      @imdb_search = ImdbSearch.new('torrente')
+      @imdb_search.stub!(:open).and_return(open("#{$samples_dir}/sample_spanish_search.html"))
+    end
+
+    describe "movies" do
+
+      it "should include 'Misión en Marbella (2001)'" do
+        @imdb_search.movies.map { |m| m.title }.should include('Misión en Marbella (2001)')
+      end
+      
+    end
+  
+  end
 
 end

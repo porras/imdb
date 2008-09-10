@@ -86,6 +86,10 @@ describe ImdbMovie do
       @imdb_movie.tagline.should == "He's back in an all new adventure. Memorial Day 1989."
     end
     
+    it "should get the aspect ratio" do
+      @imdb_movie.aspect_ratio.should == "2.20 : 1"
+    end
+    
     describe "title pre-caching & get_data" do
       
       it "should have the original title before querying anything" do

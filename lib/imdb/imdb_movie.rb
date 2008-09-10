@@ -43,6 +43,10 @@ class ImdbMovie
     document.search("//h5[text()^='Tagline']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip.unescape_html rescue nil
   end
   
+  def aspect_ratio
+    document.search("//h5[text()^='Aspect Ratio']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip.unescape_html rescue nil
+  end
+  
   def length
     document.search("//h5[text()^='Runtime']/..").innerHTML[/\d+ min/] rescue nil
   end

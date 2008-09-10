@@ -39,6 +39,10 @@ class ImdbMovie
     document.search("//h5[text()^='Plot']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip.unescape_html rescue nil
   end
   
+  def tagline
+    document.search("//h5[text()^='Tagline']/..").innerHTML.split("\n")[2].gsub(/<.+>.+<\/.+>/, '').strip.unescape_html rescue nil
+  end
+  
   def length
     document.search("//h5[text()^='Runtime']/..").innerHTML[/\d+ min/] rescue nil
   end

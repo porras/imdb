@@ -82,6 +82,10 @@ describe ImdbMovie do
       @imdb_movie.photos.should include('http://ia.media-imdb.com/images/M/MV5BMjAwNTM4ODc3Nl5BMl5BanBnXkFtZTYwNzU0OTE3._V1._CR82,0,320,320_SS90_.jpg') 
     end
     
+    it "should get the tagline" do
+      @imdb_movie.tagline.should == "He's back in an all new adventure. Memorial Day 1989."
+    end
+    
     describe "title pre-caching & get_data" do
       
       it "should have the original title before querying anything" do

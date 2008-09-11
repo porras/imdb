@@ -46,14 +46,14 @@ ImdbSearch Indiana Jones
 
 ImdbSearch Indiana Jones movies
 - should be a collection of ImdbMovie instances
-- should include 'Indiana Jones and the Last Crusade (1989)'
+- should include 'Indiana Jones and the Last Crusade'
 - should have titles
 - should not have titles with HTML tags
 
-ImdbSearch Torrent
+ImdbSearch searches with potential encoding issues
 
-ImdbSearch Torrent movies
-- should include 'Misión en Marbella (2001)'
+ImdbSearch searches with potential encoding issues movies
+- should include 'Misión en Marbella'
 
 String
 
@@ -64,6 +64,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 2.787784 seconds
+Finished in 2.848225 seconds
 
 41 examples, 0 failures

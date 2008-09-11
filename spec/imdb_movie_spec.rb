@@ -5,7 +5,7 @@ describe ImdbMovie do
   describe 'Indiana Jones and the Last Crusade' do
 
     before(:each) do
-      @imdb_movie = ImdbMovie.new('0097576', 'Indiana Jones and the Last Crusade (1989)')
+      @imdb_movie = ImdbMovie.new('0097576', 'Indiana Jones and the Last Crusade')
       @imdb_movie.stub!(:open).and_return(open("#{$samples_dir}/sample_movie.html"))
     end
   
@@ -93,10 +93,12 @@ describe ImdbMovie do
     describe "title pre-caching & get_data" do
       
       it "should have the original title before querying anything" do
-        @imdb_movie.title.should == 'Indiana Jones and the Last Crusade (1989)'
+        @imdb_movie.should_not_receive(:open)
+        @imdb_movie.title.should == 'Indiana Jones and the Last Crusade'
       end
       
       it "should have the updated title after calling get_data" do
+        @imdb_movie.should_receive(:open).with("http://www.imdb.com/title/tt0097576/").and_return(open("#{$samples_dir}/sample_movie.html"))
         @imdb_movie.get_data
         @imdb_movie.title.should == 'Indiana Jones and the Last Crusade'
       end

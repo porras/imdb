@@ -10,7 +10,7 @@ describe ImdbSearch do
     end
 
     it "should query IMDB url" do
-      @imdb_search.should_receive(:open).with("http://www.google.com/search?as_q=indiana+jones+inurl%3Atitle&num=20&as_sitesearch=imdb.com").and_return(open("#{$samples_dir}/sample_search.html"))
+      @imdb_search.should_receive(:open).with("http://www.imdb.com/find?q=indiana+jones;s=tt").and_return(open("#{$samples_dir}/sample_search.html"))
       @imdb_search.send(:document)
     end
 
@@ -24,8 +24,8 @@ describe ImdbSearch do
         end
       end
 
-      it "should include 'Indiana Jones and the Last Crusade (1989)'" do
-        @imdb_search.movies.map { |m| m.title }.should include('Indiana Jones and the Last Crusade (1989)')
+      it "should include 'Indiana Jones and the Last Crusade'" do
+        @imdb_search.movies.map { |m| m.title }.should include('Indiana Jones and the Last Crusade')
       end
 
       it "should have titles" do
@@ -44,7 +44,7 @@ describe ImdbSearch do
 
   end
   
-  describe 'Torrent' do
+  describe 'searches with potential encoding issues' do
 
     before(:each) do
       @imdb_search = ImdbSearch.new('torrente')
@@ -53,8 +53,8 @@ describe ImdbSearch do
 
     describe "movies" do
 
-      it "should include 'Misión en Marbella (2001)'" do
-        @imdb_search.movies.map { |m| m.title }.should include('Misión en Marbella (2001)')
+      it "should include 'Misión en Marbella'" do
+        @imdb_search.movies.map { |m| m.title }.should include('Misión en Marbella')
       end
       
     end

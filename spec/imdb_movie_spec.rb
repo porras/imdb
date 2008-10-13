@@ -21,6 +21,10 @@ describe ImdbMovie do
     it "should get the poster" do
       @imdb_movie.poster.should == 'http://ia.media-imdb.com/images/M/MV5BMTkzODA5ODYwOV5BMl5BanBnXkFtZTcwMjAyNDYyMQ@@._V1._SX95_SY140_.jpg'
     end
+    
+    it "should get the rating" do
+      @imdb_movie.rating.should == 8.3
+    end
   
     it "should get cast members" do
       @imdb_movie.cast_members.should include('Harrison Ford')

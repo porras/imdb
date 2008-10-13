@@ -16,6 +16,10 @@ class ImdbMovie
     document.at("a[@name='poster'] img")['src'] rescue nil
   end
   
+  def rating
+    document.at("b[text()='User Rating:'] ~ b").innerHTML.strip.unescape_html.split('/').first.to_f rescue nil
+  end
+  
   def cast_members
     document.search("table.cast td.nm a").map { |link| link.innerHTML.strip.unescape_html } rescue []
   end

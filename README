@@ -5,6 +5,7 @@ ImdbMovie Indiana Jones and the Last Crusade
 - should query IMDB url
 - should get director
 - should get the poster
+- should get the rating
 - should get cast members
 - should get the writers
 - should get the release date
@@ -64,6 +65,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 2.848225 seconds
+Finished in 3.044303 seconds
 
-41 examples, 0 failures
+42 examples, 0 failures

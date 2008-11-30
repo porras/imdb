@@ -43,7 +43,12 @@ describe ImdbSearch do
           movie.title.should_not match(/<.+>/)
         end
       end
-
+      
+      it "should not have duplicate movies" do
+        all_movie_ids = @imdb_search.movies.collect {|m| m.id}
+        unique_movie_ids = all_movie_ids.uniq
+        all_movie_ids.should == unique_movie_ids
+      end
     end
 
   end

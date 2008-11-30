@@ -47,6 +47,7 @@ ImdbSearch Indiana Jones movies
 - should include 'Indiana Jones and the Last Crusade'
 - should have titles
 - should not have titles with HTML tags
+- should not have duplicate movies
 
 ImdbSearch searches with potential encoding issues movies
 - should include 'Misión en Marbella'
@@ -58,6 +59,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 0.688276 seconds
+Finished in 0.657254 seconds
 
-43 examples, 0 failures
+44 examples, 0 failures

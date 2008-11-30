@@ -40,6 +40,10 @@ describe ImdbMovie do
       @imdb_movie.writers.should include('Philip Kaufman')
       @imdb_movie.writers.should_not include('more')
     end
+
+    it "should get the year" do
+      @imdb_movie.year.should == 1989
+    end
   
     it "should get the release date" do
       @imdb_movie.release_date.should be_an_instance_of(Date)

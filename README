@@ -6,6 +6,7 @@ ImdbMovie Indiana Jones and the Last Crusade
 - should get the rating
 - should get cast members
 - should get the writers
+- should get the year
 - should get the release date
 - should get the genres
 - should get the plot
@@ -59,6 +60,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 0.657254 seconds
+Finished in 0.662325 seconds
 
-44 examples, 0 failures
+45 examples, 0 failures

@@ -39,16 +39,21 @@ ImdbMovie Han robado una estrella
 - should get the company
 - should not get any photos
 
-ImdbSearch Indiana Jones
+ImdbSearch search that returns multiple movies
 - should query IMDB url
 - should not allow to change the query
 
-ImdbSearch Indiana Jones movies
+ImdbSearch search that returns multiple movies movies
 - should be a collection of ImdbMovie instances
 - should include 'Indiana Jones and the Last Crusade'
 - should have titles
 - should not have titles with HTML tags
 - should not have duplicate movies
+
+ImdbSearch search that redirects to the lone matching movie movies
+- should be a collection containing a single ImdbMovie instance
+- should have the correct ID
+- should have the correct title
 
 ImdbSearch searches with potential encoding issues movies
 - should include 'Misión en Marbella'
@@ -60,6 +65,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 0.662325 seconds
+Finished in 0.829689 seconds
 
-45 examples, 0 failures
+48 examples, 0 failures

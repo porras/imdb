@@ -5,7 +5,17 @@ class ImdbSearch
   end
 
   def movies
-    @movies ||= document.search('a[@href^="/title/tt"]').reject do |element|
+    @movies ||= (exact_match? ? parse_movie : parse_movies)
+  end
+
+  private
+  
+  def document
+    @document ||= Hpricot(open("http://www.imdb.com/find?q=#{CGI::escape(@query)};s=tt").read)
+  end
+  
+  def parse_movies
+    document.search('a[@href^="/title/tt"]').reject do |element|
       element.innerHTML.strip_tags.empty?
     end.map do |element|
       [element['href'][/\d+/], element.innerHTML.strip_tags.unescape_html]
@@ -13,11 +23,15 @@ class ImdbSearch
       ImdbMovie.new(*values)
     end
   end
-
-  private
   
-  def document
-    @document ||= Hpricot(open("http://www.imdb.com/find?q=#{CGI::escape(@query)};s=tt").read)
+  def parse_movie
+    id = document.at("a[@name='poster']")['href'][/\d+$/]
+    title = document.at("h1").innerHTML.split('<span').first.strip.unescape_html
+    [ImdbMovie.new(id, title)]
+  end
+  
+  def exact_match?
+    document.at("title[text()='IMDb Search']").nil?
   end
 
 end

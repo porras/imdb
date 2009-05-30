@@ -1,9 +1,7 @@
 class ImdbSearch
 
-  attr_accessor :query
-
   def initialize(query)
-    self.query = query
+    @query = query
   end
 
   def movies
@@ -17,7 +15,7 @@ class ImdbSearch
   private
   
   def document
-    @document ||= Hpricot(open("http://www.imdb.com/find?q=#{CGI::escape(query)};s=tt").read)
+    @document ||= Hpricot(open("http://www.imdb.com/find?q=#{CGI::escape(@query)};s=tt").read)
   end
 
 end

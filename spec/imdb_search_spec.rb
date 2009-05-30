@@ -13,6 +13,10 @@ describe ImdbSearch do
       @imdb_search.should_receive(:open).with("http://www.imdb.com/find?q=indiana+jones;s=tt").and_return(open("#{$samples_dir}/sample_search.html"))
       @imdb_search.send(:document)
     end
+    
+    it "should not allow to change the query" do
+      lambda { @imdb_search.query = 'wadus' }.should raise_error(NoMethodError)
+    end
 
     describe "movies" do
 

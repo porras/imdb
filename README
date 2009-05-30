@@ -1,6 +1,4 @@
 
-ImdbMovie
-
 ImdbMovie Indiana Jones and the Last Crusade
 - should query IMDB url
 - should get director
@@ -40,10 +38,9 @@ ImdbMovie Han robado una estrella
 - should get the company
 - should not get any photos
 
-ImdbSearch
-
 ImdbSearch Indiana Jones
 - should query IMDB url
+- should not allow to change the query
 
 ImdbSearch Indiana Jones movies
 - should be a collection of ImdbMovie instances
@@ -51,12 +48,8 @@ ImdbSearch Indiana Jones movies
 - should have titles
 - should not have titles with HTML tags
 
-ImdbSearch searches with potential encoding issues
-
 ImdbSearch searches with potential encoding issues movies
 - should include 'Misión en Marbella'
-
-String
 
 String unescape_html
 - should convert &amp; to &
@@ -65,6 +58,6 @@ String unescape_html
 String strip_tags
 - should strip HTML tags
 
-Finished in 3.044303 seconds
+Finished in 0.688276 seconds
 
-42 examples, 0 failures
+43 examples, 0 failures

@@ -21,20 +21,24 @@ Spec::Rake::SpecTask.new('spec:readme') do |t|
   t.spec_opts = ["--format", "specdoc:README"]
 end
 
-namespace :gem do
-  desc "Increments the Gem version in imdb.gemspec"
-  task :increment do
-    lines = File.new('imdb.gemspec').readlines
-    lines.each do |line|
-      next unless line =~ /version = '\d+\.\d+\.(\d+)'/
-      line.gsub!(/\d+'/, "#{$1.to_i + 1}'")
-    end
-    File.open('imdb.gemspec', 'w') do |f|
-      lines.each do |line|
-        f.write(line)
-      end
-    end
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |s|
+    s.name = 'imdb'
+    s.summary = 'Internet Movie DataBase'
+    s.authors = [ 'Sergio Gil' ]
+    s.email = 'sgilperez@gmail.com'
+    s.add_dependency('hpricot', '>= 0.6')
+    s.add_dependency('chronic')
+    s.files = [
+      "lib/imdb/imdb_movie.rb",
+      "lib/imdb/imdb_search.rb",
+      "lib/imdb.rb",
+      "lib/string_extensions.rb",
+      "README"    
+    ]
   end
+rescue
 end
 
 namespace :spec do

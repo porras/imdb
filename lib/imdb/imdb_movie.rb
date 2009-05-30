@@ -13,11 +13,11 @@ class ImdbMovie
   end
   
   def poster
-    document.at("a[@name='poster'] img")['src'] rescue nil
+    document.at("a[@name='poster'] img")['src'][/http:.+@@/] + '.jpg' rescue nil
   end
   
   def rating
-    document.at("b[text()='User Rating:'] ~ b").innerHTML.strip.unescape_html.split('/').first.to_f rescue nil
+    document.at(".general.rating b").innerHTML.strip.unescape_html.split('/').first.to_f rescue nil
   end
   
   def cast_members

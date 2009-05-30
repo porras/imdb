@@ -37,4 +37,20 @@ namespace :gem do
   end
 end
 
+namespace :spec do
+  desc "Update page samples"
+  task :update_samples do
+    require 'open-uri'
+    {
+      "sample_movie" => "http://www.imdb.com/title/tt0097576/",
+      "sample_search" => "http://www.imdb.com/find?q=indiana+jones",
+      "sample_incomplete_movie" => "http://www.imdb.com/title/tt0054961/",
+      "sample_spanish_search" => "http://www.imdb.com/find?q=torrente"
+    }.each do |file_name, url|
+      File.open(File.join(File.dirname(__FILE__), 'spec', 'samples', file_name + '.html'), 'w') do |f|
+        f.write open(url).read
+      end
+    end
+  end
+end
 

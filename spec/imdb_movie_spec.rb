@@ -37,7 +37,7 @@ describe ImdbMovie do
   
     it "should get the writers" do
       @imdb_movie.writers.should include('George Lucas')
-      @imdb_movie.writers.should include('Philip Kaufman')
+      @imdb_movie.writers.should include('Jeffrey Boam')
       @imdb_movie.writers.should_not include('more')
     end
 
@@ -81,7 +81,7 @@ describe ImdbMovie do
     end
   
     it "should get the company" do
-      @imdb_movie.company.should == 'Lucasfilm'
+      @imdb_movie.company.should == 'Paramount Pictures'
     end
   
     it "should get some photos" do
